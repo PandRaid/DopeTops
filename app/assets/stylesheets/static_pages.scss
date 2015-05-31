@@ -6,9 +6,24 @@ h2.blocktext {
 	text-align: center
 
 }
+.subtitle {
+	text-align: center;
+	font-family: Geneva;
+    color: #555555;
+}
 
 
 div.spacer {
 	
-	padding-top: 50px;
+	padding-top: 40px;
+}
+
+.tab { text-indent:40px }
+
+P.text {
+    font-family: Geneva;
+    font-size: 18px;
+    color: #555555;
+    line-height: 1.2;
+    letter-spacing: .25px;
 }
