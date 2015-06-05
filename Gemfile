@@ -18,6 +18,9 @@ gem 'autoprefixer-rails'
 
 gem 'bootstrap-sass', '~> 3.3.1'
 
+gem 'mail_form'
+gem 'simple_form'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

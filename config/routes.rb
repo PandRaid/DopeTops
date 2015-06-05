@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
 
+  match '/static_pages/contact',     to: 'static_pages#new',             via: 'get'
+  resources "contact", only: [:new, :create]
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
