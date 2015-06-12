@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -58,35 +58,23 @@
 				  </div>
 				</div>
   				<div class="well">
-  					<form>
-					  <div class="form-group has-feedback">
-					    <label class="control-label" for="inputUsername">Name</label>
-					    <input type="text" class="form-control" id="inputUsername" placeholder="John Smith">
-					    <span class="glyphicon glyphicon-user form-control-feedback"></span>
-					  </div>
-					  <div class="form-group has-feedback">
-					    <label class="control-label" for="inputEmail">Name</label>
-					    <input type="text" class="form-control" id="inputEmail" placeholder="example123@gmail.com">
-					    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-					  </div>
-					  <div class="form-group">
-					    <label for="exampleropDown">Nature of Inquiry</label>
-					    <select class="form-control">
-						  <option>General Question</option>
-						  <option>Order Information</option>
-						  <option>Account Issues</option>
-						  <option>Custom Toppers</option>
-						  <option>Payment Information</option>
-						</select>
-					  </div>
-					  <div class="form-group">
-					    <label for="exampleQuestion">Questions</label>
-					 	<textarea class="form-control" rows="5"></textarea>
-					  </div>
-					 <br>
-					  <button type="submit" class="btn btn-default">Submit</button>
-					</form>
-  				</div>
+                <% if flash[:notice] %>
+                  <div class="alert alert-success" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                  <a href="#" class="alert-link"><%= flash[:notice] %></a>
+                </div>
+
+                <% end %>
+              <%= bootstrap_form_for(@contact, inline_errors: false) do |f| %>
+              <%= f.alert_message "Please fix the errors below." %>
+                <%= f.text_field :name, icon: "user" %>
+                <%= f.email_field :email, icon: "envelope" %>
+                <%= f.select :subject, [["General Question"], ["Order Information"], ["Account Issues"], ["Custom Toppers"], ["Payment Issues"]],{ label: "Nature of Inquiry" }, { class: "selectpicker" } %>
+                <%= f.text_area :message %>
+                <%= f.submit "Submit", class: "btn btn-primary" %>
+              <% end %>
 	  		</div>
 	  		<div class="col-md-1"></div>
 	  	</div>

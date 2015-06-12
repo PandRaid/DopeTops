@@ -20,6 +20,8 @@ gem 'bootstrap-sass', '~> 3.3.1'
 
 gem 'mail_form'
 gem 'simple_form'
+gem 'bootstrap_form', github: 'bootstrap-ruby/rails-bootstrap-forms'
+
 
 
 # Use jquery as the JavaScript library

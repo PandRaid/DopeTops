@@ -17,6 +17,7 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'rails_bootstrap_forms';
 
 body { padding-top: 70px; }
 
@@ -79,3 +80,5 @@ body { padding-top: 70px; }
     background-color: #bab8c3;
   }
 }
+
+#logo { height: 150px; width: 150px; overflow: hidden; }
