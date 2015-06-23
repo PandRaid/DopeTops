@@ -70,7 +70,7 @@
               <%= bootstrap_form_for(@contact, inline_errors: false) do |f| %>
               <%= f.alert_message "Please fix the errors below." %>
                 <%= f.text_field :name, icon: "user" %>
-                <%= f.email_field :email, icon: "envelope" %>
+                <%= f.email_field :email, icon: "envelope"%>
                 <%= f.select :subject, [["General Question"], ["Order Information"], ["Account Issues"], ["Custom Toppers"], ["Payment Issues"]],{ label: "Nature of Inquiry" }, { class: "selectpicker" } %>
                 <%= f.text_area :message %>
                 <%= f.submit "Submit", class: "btn btn-primary" %>

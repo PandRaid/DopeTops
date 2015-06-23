@@ -15,3 +15,9 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$('a.test').on('click', function() {
+    whichtab = $(this).data('opentab');
+    $('#myModal').modal('show');
+    $('.nav-tabs li:eq('+whichtab+') a').tab('show');
+})

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :views
+  devise_for :users
   get 'gallery/show'
 
   get 'static_pages/about'
@@ -16,7 +18,6 @@ Rails.application.routes.draw do
 
  match '/contacts',     to: 'contacts#new',             via: 'get'
  resources "contacts", only: [:new, :create]
-
   match '/gallery',     to: 'gallery#show',             via: 'get'
  resources "gallery", only: [:show, :create]
 

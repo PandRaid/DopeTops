@@ -1,0 +1,71 @@
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div modal="modal-header">
+            <% if flash[:notice] %>
+              <div class="alert alert-success" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+              <a href="#" class="alert-link"><%= flash[:notice] %></a>
+            </div>
+            <%end%>
+        </div>
+          <div class="modal-body">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <ul class="nav nav-tabs">
+              <li class="active"><a href="#login" data-toggle="tab">Login</a></li>
+              <li><a href="#create" data-toggle="tab">Create Account</a></li>
+            </ul>
+                  <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane active in" id="login">
+                    <br>
+                    <%= bootstrap_form_for(:user) do |f| %>
+                      <div class="form-inputs">
+                        <%= f.text_field :email, required: true, autofocus: true %>
+                        <%= f.password_field :password, required: true %>
+                        <%= f.check_box :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                      </div>
+                      <br>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <%= f.submit "Submit", class: "btn btn-success" %>
+                    <% end %>
+                    </div>
+                    <div class="tab-pane fade" id="create">
+                      <br>
+
+                      <%= bootstrap_form_for(:user, :url => user_registration_path) do |f| %>
+                      <%= f.alert_message "Please fix the errors below." %>
+                      <div class="form-inputs">
+                        <%= f.text_field :username, required: true, autofocus: true %>
+                        <%= f.email_field :email, required: true%>
+                        <%= f.password_field :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+                        <%= f.password_field :password_confirmation, required: true %>
+                        <%= f.text_field :first_name, required: true %>
+                        <%= f.text_field :last_name, required: true %>
+                        <%= f.text_field :zip, required: true %>
+                        <%= f.date_field :birth, required: true %>
+                        <%= f.select :country, [["United States"], ["Argentina"], ["Australia"],["Austria"],
+                        ["Belguim"],["Belize"],["Brazil"],["Bulgaria"],["Canada"],["Chile"],
+                        ["China"],["Colombia"],["Costa Rica"],["Czech Republic"],["Denmark"],["Ecuador"],
+                        ["Egypt"],["Finland"],["France"],["Germany"],["Greece"],["Greenland"],["Guatamala"],
+                        ["Honduras"],["Hong Kong"],["Hungary"],["Iceland"],["India"],["Indonesia"],
+                        ["Iraq"],["Iran"],["Ireland"],["Italy"],["Japan"],["South Korea"],
+                        ["Macedonia"],["Malaysia"],["Mexico"],["Monaco"],["Netherlands"],["New Zealand"],
+                        ["Nicaragua"],["Norway"],["Panama"],["Paraguay"],["Peru"],["Phillippines"],
+                        ["Poland"],["Portugal"],["Puerto Rico"],["Romania"],["Russia"],["Singapore"],
+                        ["Spain"],["Sweden"],["Switzerland"],["Thailand"],["Ukraine"],["United Kingdom"],
+                        ["Uruguay"],["Venezuela"]],{ label: "Country" }, { class: "selectpicker" }  %>
+                      </div>
+                          <br>
+                         <button type="button" class="btn btn-default btn-right" data-dismiss="modal">Close</button>
+                        <%= f.submit "Submit", class: "btn btn-success" %>
+                    <% end %>
+                    </div>
+                 </div>
+          </div>
+        </div>
+      </div>
+    </div>
