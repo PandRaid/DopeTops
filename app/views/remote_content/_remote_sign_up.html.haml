@@ -1,0 +1,24 @@
+#sign_up_modal.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"}
+          %i.fa.fa-times-circle
+        %h4#SignInModal.modal-title Create an account
+      = bootstrap_form_for(resource, :as => resource_name, :inline_errors =>false, :url => registration_path(resource_name), :remote => true, :format => :js,  :html => {:class => "form-signin", :id=>"addSubmit"}) do |f|
+        .modal-body
+          //= f.error_notification
+          = f.text_field :username, :autofocus => true, :input_html => {:class => 'form-control'}, :placeholder => "toppers"
+          = f.email_field :email, :autofocus => true, :input_html => {:class => 'form-control'}, :placeholder => "example123@gmail.com"
+          = f.password_field :password, :input_html => {:class => 'form-control'}, :placeholder => "password"
+          = f.password_field :password_confirmation, :input_html => {:class => 'form-control'}, :placeholder => "confirm password"
+          = f.text_field :first_name, :input_html => {:class => 'form-control'}, :placeholder => "John"
+          = f.text_field :last_name, :input_html => {:class => 'form-control'}, :placeholder => "Smith"
+          = f.text_field :zip, :input_html => {:class => 'form-control'}, :placeholder => "10001"
+          = f.date_field :birth, :input_html => {:class => 'form-control'}
+          = f.select :country, [["United States"], ["Argentina"], ["Australia"],["Austria"],["Belguim"],["Belize"],["Brazil"],["Bulgaria"],["Canada"],["Chile"],["China"],["Colombia"],["Costa Rica"],["Czech Republic"],["Denmark"],["Ecuador"],["Egypt"],["Finland"],["France"],["Germany"],["Greece"],["Greenland"],["Guatamala"],["Honduras"],["Hong Kong"],["Hungary"],["Iceland"],["India"],["Indonesia"],["Iraq"],["Iran"],["Ireland"],["Italy"],["Japan"],["South Korea"],["Macedonia"],["Malaysia"],["Mexico"],["Monaco"],["Netherlands"],["New Zealand"],["Nicaragua"],["Norway"],["Panama"],["Paraguay"],["Peru"],["Phillippines"],["Poland"],["Portugal"],["Puerto Rico"],["Romania"],["Russia"],["Singapore"],["Spain"],["Sweden"],["Switzerland"],["Thailand"],["Ukraine"],["United Kingdom"],["Uruguay"],["Venezuela"]],{ label: "Country" }, { class: "selectpicker" }  
+        .modal-footer
+          .form-actions
+            %a{ :href => "#", :class => "btn", "data-dismiss" => "modal" } cancel
+            = f.submit "Register", :class => "btn btn-success"
+            

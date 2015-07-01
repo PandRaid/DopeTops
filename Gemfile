@@ -23,6 +23,10 @@ gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form'
 gem 'bootstrap_form', github: 'bootstrap-ruby/rails-bootstrap-forms'
 gem 'devise'
 
+gem 'haml'
+gem 'haml-rails'
+gem 'country_select'
+
 
 
 # Use jquery as the JavaScript library

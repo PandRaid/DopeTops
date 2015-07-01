@@ -11,13 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+//= require bootstrap-sprockets
 
-$('a.test').on('click', function() {
-    whichtab = $(this).data('opentab');
-    $('#myModal').modal('show');
-    $('.nav-tabs li:eq('+whichtab+') a').tab('show');
-})

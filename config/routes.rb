@@ -1,6 +1,5 @@
-Rails.application.routes.draw do
+  Rails.application.routes.draw do
   devise_for :views
-  devise_for :users
   get 'gallery/show'
 
   get 'static_pages/about'
@@ -9,6 +8,12 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
 
+  devise_for :users, :controllers => {registrations: 'registrations'}
+
+
+  match 'remote_sign_up', to: 'remote_content#remote_sign_up', via: [:get]
+
+  match 'remote_sign_in', to: 'remote_content#remote_sign_in', via: [:get]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -7,8 +7,7 @@
     <title>Cakes</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
-    <%= javascript_include_tag 'https://js.stripe.com/v2/' %>
+     <%= javascript_include_tag 'https://js.stripe.com/v2/' %>
 
     <%= csrf_meta_tags %>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -42,19 +41,17 @@
         <li><a href="#">Products</a></li>
       </ul>
       
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right userElements">
 	         <ul class="nav navbar-nav">
-            <li><a class="test" data-opentab="0">Login</a></li>
-            <li><a class="test" data-opentab="1">Register</a></li>
+            <%= render 'application/user_buttons' %>
           </ul>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
 
-    <%= render "welcome/login_signup_modal" %>
-
     <%= yield %>
 
   </body>
 </html>
+

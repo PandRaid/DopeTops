@@ -22,7 +22,7 @@
                   <div id="myTabContent" class="tab-content">
                     <div class="tab-pane active in" id="login">
                     <br>
-                    <%= bootstrap_form_for(:user, :url => user_session_path) do |f| %>
+                    <%= bootstrap_form_for(:user, :url => session_path(:user)) do |f| %>
                       <div class="form-inputs">
                         <%= f.text_field :email, required: true, autofocus: true %>
                         <%= f.password_field :password, required: true %>
@@ -36,7 +36,7 @@
                     <div class="tab-pane fade" id="create">
                       <br>
 
-                      <%= bootstrap_form_for(:user, :url => user_registration_path) do |f| %>
+                      <%= bootstrap_form_for(:user, :url => registration_path(:user)) do |f| %>
                       <%= f.alert_message "Please fix the errors below." %>
                       <div class="form-inputs">
                         <%= f.text_field :username, required: true, autofocus: true %>
