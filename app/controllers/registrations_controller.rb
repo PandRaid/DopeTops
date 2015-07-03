@@ -19,9 +19,8 @@ class RegistrationsController < Devise::RegistrationsController
           end
         }
         format.js {
-          flash[:notice] = "Successfully Signed Up and Logged in!"
           sign_up(resource_name, resource)
-          render :template => "remote_content/devise_success_sign_up.js.erb"
+          redirect_to user_page_path
           flash.discard
         }
       end

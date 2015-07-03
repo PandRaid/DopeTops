@@ -15,6 +15,9 @@
 
   match 'remote_sign_in', to: 'remote_content#remote_sign_in', via: [:get]
 
+
+  match 'user_page', to: 'user_page#user_home', via: [:get]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
