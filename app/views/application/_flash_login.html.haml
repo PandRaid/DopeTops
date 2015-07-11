@@ -1,10 +1,5 @@
-#flash
+#flash_login
   - flash.each do |type, message|
     .alert.alert-dismissable{ :class => twitterized_type(type) }
       %button.close{"data-dismiss" => "alert", "aria-hidden" => "true"} ×
-      - if message.kind_of?(Array)
-        %ul
-        - message.each do |item|
-          %li= item
-      - else
-        %p= message
+      %p= message

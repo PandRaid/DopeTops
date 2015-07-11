@@ -31,7 +31,7 @@ class RegistrationsController < Devise::RegistrationsController
           respond_with resource
         }
         format.js {
-          flash[:alert] = @user.errors.full_messages.to_sentence
+          flash[:error] = @user.errors.full_messages
           render :template => "remote_content/devise_errors.js.erb"
           flash.discard
         }

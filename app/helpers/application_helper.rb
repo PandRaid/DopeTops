@@ -22,15 +22,15 @@ module ApplicationHelper
 	  def twitterized_type(type)
 	    case type
 	      when :errors
-	        "alert-error"
+	        "alert-danger"
 	      when :alert
 	        "alert-warning"
 	      when :error
-	        "alert-error"
+	        "alert-danger"
 	      when :notice
 	        "alert-success"
 	      else
-	        "alert-info"
+	        "alert-danger"
 	    end
 	  end
 end
