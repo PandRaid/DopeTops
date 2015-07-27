@@ -17,12 +17,54 @@
   <body>
 
    <div class="container">
-    	<% if current_user %>
-    		<h2>Welcome to the home view "<%current_user.email%>"</h2>
-    	<%else%>
-    		<h2>Hello stranger, please sign in to interact on a deeper level</h2>
-    	<%end%>
-   </div>
+     <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+          <div class="page-header">
+            <h1><small>
+              <div class="panel panel-default">
+                <div class="panel-body">
+                  <% if current_user %>
+                    <h2 class="text-center">Welcome to Cake Sparkle, <%= current_user.first_name%></h2>
+                  <%else%>
+                    <h2>Hello stranger, please sign in to interact on a deeper level</h2>
+                  <%end%>
+                </div>
+              </div>
+            </small></h1>
+          </div>
+          <div class="panel panel-default">
+              <div class="panel-body">
+                <p class="text">My Orders</p>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="well"><strong>Order Info</strong><br><p class="text">order status, tracking information, view invoice, cancel item</p></div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="well"><strong>Return Info</strong><br><p class="text">return status, tracking information, view invoice, print label</p></div>
+                  </div>
+                  <div class="col-md-4">
+                  </div>
+                </div>
+                <p class="text">My Account</p>
+                <div class="row">
+                  <div class="col-md-4">
+                    <div class="well"><strong>Addresses</strong><br><p class="text">add or edit shipping address</p><br></div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="well"><strong>Payments</strong><br><p class="text">add, edit or delete payment method</p><br></div>
+                  </div>
+                  <div class="col-md-4">
+                    <div class="well"><strong>Personal</strong><br><p class="text">edit name, number or email</p><br></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-1"></div>
+      </div>
+    </div>
 
     <%= yield %>
 
